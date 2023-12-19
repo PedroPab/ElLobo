@@ -3,7 +3,11 @@ import DataStore from "../data/index.js"
 import presente from "../logicGame/presente.js";
 import startGame from "../logicGame/startGame.js";
 import credenciales from "../middleware/credenciales.js";
+import { Server } from 'socket.io'
 
+/**
+ * @param {Server} io
+ */
 const socketServer = (gameIo, dataParty) => {
   //la base de datos de la sala de juego
   const DatabaseNamespace = new DataStore()

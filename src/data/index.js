@@ -3,6 +3,7 @@ import User from "../class/user.js";
 const LIST_STATES = {
     'WAIT_TO_START': 'WAIT_TO_START',
     'REQUESTING_PRESENCE': 'REQUESTING_PRESENCE',
+    'INIT_GAME': 'INIT_GAME'
 }
 
 class DataStore {

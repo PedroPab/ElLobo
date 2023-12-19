@@ -1,6 +1,9 @@
 import NamespaceGame from "./namesapaceGame.js";
+import { Server } from 'socket.io'
 
-
+/**
+ * @param {Server} io
+ */
 const socketServer = (io) => {
 
   io.on('connection', (socket) => {
@@ -33,6 +36,7 @@ const socketServer = (io) => {
 
       NamespaceGame(newSala, data)
     })
+
 
   });
 
