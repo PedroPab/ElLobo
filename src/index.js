@@ -14,7 +14,11 @@ const app = express()
 const httpServer = createServer(app)
 const io = new Server(httpServer, {
   cors: {
-    origin: ['https://admin.socket.io', 'http://localhost:3008'],
+    origin: [
+      'https://admin.socket.io',
+      'http://localhost:3008',
+      'localhost:3008',
+    ],
     credentials: true,
   }
 })

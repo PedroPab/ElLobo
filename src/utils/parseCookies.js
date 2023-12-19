@@ -1,7 +1,7 @@
 function parseCookies(cookies) {
-  const cookieSplit = cookies.split('; ')
-  const dataCookies = cookieSplit.reduce((parsedCookies, cookie) => {
-    const [name, value] = cookie.split('=');
+  const cookieSplit = cookies?.split('; ')
+  const dataCookies = cookieSplit?.reduce((parsedCookies, cookie) => {
+    const [name, value] = cookie?.split('=');
     parsedCookies[name] = decodeURIComponent(value);
     return parsedCookies;
   }, {});
