@@ -30,10 +30,10 @@ const socketServer = (gameIo, dataParty) => {
     })
 
     socket.on('openSala', () => {
-
-
       //le damos la nuevo usuario los usuariso actuales
       socket.emit('users', [...DatabaseNamespace.listUsers])
+      console.log(`mandamos los usuarios`)
+
     })
 
     //emitimos que hay un nuevo usuario a todos los demás sockets
@@ -43,6 +43,9 @@ const socketServer = (gameIo, dataParty) => {
 
     socket.on('message', (data) => {
       console.log(`[message] `, data)
+      if (data == 'pin') {
+        socket.emit('message', 'pon')
+      }
     })
 
     //para contar los presentes 

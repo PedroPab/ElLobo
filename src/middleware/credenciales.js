@@ -5,20 +5,21 @@ import verificarCredenciales from "./../utils/verificarCredenciales.js"
 function credenciales({ Database: DatabaseNamespace }) {
 
   return (socket, next) => {
-    let cookies = socket.handshake.headers.cookie;
-    let parsedCookies = parseCookies(cookies);
+    let auth = socket.handshake.auth;
+    console.log("🚀 ~ file: credenciales.js:9 ~ return ~ auth:", auth)
 
-    if (!parsedCookies || !parsedCookies.nombreUsuario || !parsedCookies.contrasena) {
+    let { userName, password } = auth
+
+    if (!userName || !password) {
       console.log(`no esta con los datos del usuario`)
+
       next(new Error('Error parsing cookies, sin los datos de usuario'));
       return;
     }
 
-    let { nombreUsuario, contrasena } = parsedCookies;
-
     let usuario = verificarCredenciales({
-      userName: nombreUsuario,
-      password: contrasena,
+      userName: userName,
+      password: password,
       Database: DatabaseNamespace
     });
 

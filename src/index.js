@@ -18,6 +18,7 @@ const io = new Server(httpServer, {
       'https://admin.socket.io',
       'http://localhost:3008',
       'localhost:3008',
+      'localhost:3006',
     ],
     credentials: true,
   }
